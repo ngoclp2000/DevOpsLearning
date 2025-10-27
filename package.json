@@ -1,0 +1,14 @@
+{
+  "name": "hello-devops",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "dev:test": "vitest",
+    "start": "node src/index.js"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}

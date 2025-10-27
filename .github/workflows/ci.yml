@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node CI
 
 on:
   push:
@@ -15,5 +15,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm test
+          cache: 'npm'
+      - name: Install deps (prefer ci)
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+      - name: Run tests
+        run: npm test
